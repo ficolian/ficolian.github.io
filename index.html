@@ -1,1 +1,76 @@
-Hello word
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        input{
+            font-size :  1.2rem;
+            padding : 10px;
+            margin: 10px 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form{
+            display : flex;
+        }
+        #messages{
+           height: 88vh;  
+           overflow: hidden;
+           padding: 10px;
+           background-color:goldenrod;
+        }
+        #message{
+            flex:2;
+        }
+        #msg{
+            background-color: #dcf8cd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+        .msg p {
+            padding-left: 0PX;
+            font-weight: bold
+        }
+    </style>
+</head>
+    <body>
+        <div id="messages"  >
+            
+        </div>
+        <form>
+            <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message..." >
+            <input type="button" value="Send" onclick="add()">
+        </form>
+        
+        <script>
+            function add(){
+                var message = document.getElementById("message").value 
+                var div = document.getElementById("messages")
+                
+                var divChild = document.createElement("p")
+                divChild.setAttribute("id","msg")
+                var divText = document.createTextNode(message)
+    
+                divChild.appendChild(divText)
+                div.appendChild(divChild)
+                document.getElementById(message).value = ''
+            }
+            
+        </script>
+    </body>
+</html>
